@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markus Artha Bima Simatupang - Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#035485',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        energy: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Font & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(14, 165, 233, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .dark .bg-grid-pattern {
+            background-image: radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Name -->
+                <a href="#hero" class="flex items-center space-x-2 font-bold text-lg text-slate-900 dark:text-white hover:text-brand-600 transition">
+                    <span class="bg-brand-600 text-white p-1.5 rounded-lg text-xs font-mono">MABS</span>
+                    <span class="hidden sm:inline">Markus Simatupang</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-500 transition">About</a>
+                    <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-500 transition">Experience</a>
+                    <a href="#competencies" class="hover:text-brand-600 dark:hover:text-brand-500 transition">Competencies</a>
+                    <a href="#education" class="hover:text-brand-600 dark:hover:text-brand-500 transition">Education</a>
+                    <a href="#certifications" class="hover:text-brand-600 dark:hover:text-brand-500 transition">Certifications</a>
+                    <a href="#organizations" class="hover:text-brand-600 dark:hover:text-brand-500 transition">Organizations</a>
+                </nav>
+
+                <!-- Actions: QR Code & Dark Mode Toggle -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="toggleQRModal()" class="flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-brand-50 text-brand-700 dark:bg-slate-800 dark:text-brand-400 hover:bg-brand-100 dark:hover:bg-slate-700 transition border border-brand-200 dark:border-slate-700">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <span>Portfolio QR</span>
+                    </button>
+                    
+                    <button id="themeToggle" onclick="toggleDarkMode()" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+                        <i id="themeIcon" class="fa-solid fa-moon"></i>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-600">About</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-600">Experience</a>
+            <a href="#competencies" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-600">Competencies</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-600">Education</a>
+            <a href="#certifications" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-600">Certifications</a>
+            <a href="#organizations" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-600">Organizations</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative py-16 lg:py-24 bg-grid-pattern border-b border-slate-200 dark:border-slate-800 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Details -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 border border-brand-300 dark:border-brand-700">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Available for Field & Technical Opportunities
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                        Markus Artha Bima <span class="text-brand-600 dark:text-brand-500">Simatupang</span>
+                    </h1>
+
+                    <p class="text-lg font-medium text-brand-700 dark:text-brand-400 flex flex-wrap justify-center lg:justify-start gap-2 items-center">
+                        <span>Field Engineer</span> <span class="text-slate-400">•</span>
+                        <span>Geophysicist</span> <span class="text-slate-400">•</span>
+                        <span>Petrophysicist & Well Logging</span>
+                    </p>
+
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Geophysics Engineering graduate from ITS with practical experience in subsurface data analysis, petrophysical evaluation, reservoir characterization, and rig site geotechnical drilling supervision.
+                    </p>
+
+                    <!-- Quick Action Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="mailto:simatupang.marc@gmail.com" class="px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm transition shadow-lg shadow-brand-500/25 flex items-center gap-2">
+                            <i class="fa-solid fa-envelope"></i> Contact Me
+                        </a>
+                        <a href="https://wa.me/6285155078736" target="_blank" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition shadow-lg shadow-emerald-500/25 flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                        </a>
+                        <button onclick="window.print()" class="px-5 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium text-sm transition flex items-center gap-2">
+                            <i class="fa-solid fa-print"></i> Print / Save CV
+                        </button>
+                    </div>
+
+                    <!-- Contact Chips Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 text-xs font-medium text-slate-600 dark:text-slate-300">
+                        <div class="flex items-center gap-2 p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 shadow-sm">
+                            <i class="fa-solid fa-envelope text-brand-600 dark:text-brand-400 text-base"></i>
+                            <span class="truncate">simatupang.marc@gmail.com</span>
+                            <button onclick="copyText('simatupang.marc@gmail.com', 'Email')" class="ml-auto text-slate-400 hover:text-brand-500"><i class="fa-regular fa-copy"></i></button>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 shadow-sm">
+                            <i class="fa-brands fa-linkedin text-brand-600 dark:text-brand-400 text-base"></i>
+                            <a href="https://linkedin.com/in/markus-simatupang-" target="_blank" class="truncate hover:underline">linkedin.com/in/markus-simatupang-</a>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 shadow-sm">
+                            <i class="fa-solid fa-phone text-emerald-600 dark:text-emerald-400 text-base"></i>
+                            <span>(+62) 851-5507-8736</span>
+                            <button onclick="copyText('+6285155078736', 'Phone')" class="ml-auto text-slate-400 hover:text-brand-500"><i class="fa-regular fa-copy"></i></button>
+                        </div>
+                        <div class="flex items-center gap-2 p-2.5 rounded-lg bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 shadow-sm">
+                            <i class="fa-solid fa-location-dot text-rose-500 text-base"></i>
+                            <span class="truncate">Central Jakarta, DKI Jakarta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Profile Image Card -->
+                <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-energy-500 rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                        <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-slate-800 border-4 border-white dark:border-slate-700">
+                            <!-- Embedded CV Photo Image -->
+                            <img id="profileImg" src="data:image/png;base64,iVBORw0KGgoAAAANSOhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Markus Artha Bima Simatupang" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=Markus+Simatupang';">
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-3 text-center">
+                        <i class="fa-solid fa-graduation-cap text-brand-500"></i> Geophysics Engineering ITS Graduate
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SUMMARY SECTION -->
+    <section id="about" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Executive Profile</h2>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Professional Summary</h3>
+            </div>
+
+            <div class="bg-slate-50 dark:bg-slate-800/50 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-700/80 shadow-sm leading-relaxed text-slate-700 dark:text-slate-300 text-justify text-sm sm:text-base">
+                <p>
+                    <strong class="text-slate-900 dark:text-white font-semibold">Geophysics Engineering graduate from Sepuluh Nopember Institute of Technology (GPA: 3.49/4.00)</strong> with practical experience in subsurface data analysis, petrophysical evaluation, reservoir characterization, and well data interpretation through internships at PT Medco Energi E&P Indonesia. Equipped with drilling and well operations fundamentals through IWCF Level 1 certification, Measurement While Drilling (MWD) training, Basic Drilling Course, and Well Operations Crew Resource Management (WOCRM), complemented by direct field exposure supporting geothermal drilling infrastructure projects. Experienced in field operations, equipment and core sample acquisition, lithological logging, operational documentation, multidisciplinary coordination, and HSE compliance. Analytical and adaptable, with a strong interest in field engineering and wellsite operations, eager to apply my technical foundation and problem-solving skills in demanding field environments while continuously developing my capabilities in oil and gas well services.
+                </p>
+            </div>
+
+            <!-- Highlight Metrics Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-8">
+                <div class="bg-brand-50/50 dark:bg-slate-800/80 p-5 rounded-xl border border-brand-200 dark:border-slate-700 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">3.49 <span class="text-xs font-normal text-slate-500">/4.00</span></div>
+                    <div class="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1">ITS Geophysics GPA</div>
+                </div>
+                <div class="bg-brand-50/50 dark:bg-slate-800/80 p-5 rounded-xl border border-brand-200 dark:border-slate-700 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">50+</div>
+                    <div class="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1">Exploration Wells Analyzed</div>
+                </div>
+                <div class="bg-brand-50/50 dark:bg-slate-800/80 p-5 rounded-xl border border-brand-200 dark:border-slate-700 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">6+</div>
+                    <div class="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1">Geophysical Survey Methods</div>
+                </div>
+                <div class="bg-brand-50/50 dark:bg-slate-800/80 p-5 rounded-xl border border-brand-200 dark:border-slate-700 text-center">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">IWCF L1</div>
+                    <div class="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1">Well Control Certified</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK EXPERIENCES -->
+    <section id="experience" class="py-16 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Track Record</h2>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Professional Work Experience</h3>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative border-l-2 border-brand-500/30 dark:border-slate-700 ml-3 sm:ml-6 space-y-12">
+
+                <!-- Job 1 -->
+                <div class="relative pl-6 sm:pl-10">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-600 ring-4 ring-slate-50 dark:ring-slate-950"></div>
+                    
+                    <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900 dark:text-white">PT POSITION CONSULTANTS</h4>
+                                <div class="text-brand-600 dark:text-brand-400 font-semibold text-sm">Field Engineering Support</div>
+                            </div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 w-max">
+                                March 2026 – Present
+                            </span>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Supervised JACRO 100 Rig operations for geotechnical core drilling; monitoring drilling progress, core sample acquisition, lithological logging and description, coordinating field personnel, and ensuring compliance with operational procedures and HSE standards for PT Daya Mas Nage Geothermal infrastructure development.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Conducted hydrological field data acquisition and drainage crossing assessments within geothermal infrastructure areas to support engineering design and environmental evaluation.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Conducted geotechnical drilling supervision activities, including core sample acquisition quality control, lithological logging and description, recovery monitoring, and field documentation, alongside Cone Penetration Test (CPT/Sondir) and Dynamic Cone Penetrator (DCP) investigations for subsurface evaluation and infrastructure planning.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Prepared and managed HSE documentation and operational permit requirements for geotechnical drilling and topographic survey activities, while serving as HSE Representative in coordination with client and field personnel.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Coordinated field manpower, monitored operational progress, and prepared daily, weekly, and monthly operational reports and technical documentation to support project monitoring, stakeholder communication, and performance evaluation.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Performed geological field mapping and observations to identify and assess geohazard potential within geothermal project areas, providing critical input for infrastructure planning and site development.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="relative pl-6 sm:pl-10">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-slate-50 dark:ring-slate-950"></div>
+                    
+                    <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900 dark:text-white">PT MEDCO ENERGI E&P INDONESIA</h4>
+                                <div class="text-brand-600 dark:text-brand-400 font-semibold text-sm">Undergraduate Research Intern - Reservoir & Petrophysics Analyst</div>
+                            </div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 w-max">
+                                May 2024 – July 2024
+                            </span>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Conducted formation evaluation and well data analysis through integration of wireline logs, RCAL, and SCAL datasets from 10 production wells, supporting reservoir characterization and subsurface decision-making relevant to drilling and field development activities.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Performed petrophysical analysis on carbonate reservoirs by integrating log and core data to validate and enhance the accuracy of reservoir rock interpretation results.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Applied the Rock Typing Pore Geometry Structure (PGS) method on carbonate reservoirs, producing permeability predictions with 80% higher correlation to core data compared to conventional methods.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Predicted permeability for wells without SCAL data using the PGS method and optimized SCAL data selection (Quality Control), increasing prediction accuracy and reducing error by approximately ±30%.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Collaborated with multidisciplinary teams including geologists, petrophysicists, subsurface analysts, and reservoir engineers to validate interpretations and support integrated technical evaluations.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Participated in a company site visit to PT Sigma Cipta Utama warehouse to inspect core samples from wells involved in the research project.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative pl-6 sm:pl-10">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-slate-50 dark:ring-slate-950"></div>
+                    
+                    <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900 dark:text-white">PT MEDCO ENERGI E&P INDONESIA</h4>
+                                <div class="text-brand-600 dark:text-brand-400 font-semibold text-sm">Subsurface Data Analyst Intern</div>
+                            </div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 w-max">
+                                August 2023 – September 2023
+                            </span>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Developed an integrated mineralogy database from Petrography, XRD, and SEM data for 50+ exploration wells, including digitizing well reports into Microsoft Excel, which streamlined data retrieval and review by 100% compared to the previous manual system.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Processed and visualized mineral abundance data from dozens of core samples to support lithology interpretation, improving analysis accuracy by approximately ±50%.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Designed and implemented an interactive dashboard in Microsoft Excel (Pivot Tables & Data Model) to manage and visualize data from 50+ wells and hundreds of mineralogy records, accelerating analysis time and enhancing team efficiency by up to 80% in exploration decision-making.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Collaborated with geologists, geophysicists, petrophysicists, and senior management for data validation and subsurface integration, gaining exposure to oilfield workflows and cross-functional coordination. Prepared technical reports supporting prospect evaluation and reservoir analysis.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="relative pl-6 sm:pl-10">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-slate-50 dark:ring-slate-950"></div>
+                    
+                    <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900 dark:text-white">DEPARTMENT OF GEOPHYSICS ITS</h4>
+                                <div class="text-brand-600 dark:text-brand-400 font-semibold text-sm">Integrated Field Research Intern / Geophysical Field Analyst</div>
+                            </div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 w-max">
+                                August 2023
+                            </span>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Planned and executed geophysical surveys, including data acquisition, processing, and integrated interpretation using 6 geophysical methods (Resistivity, Seismic, Electromagnetic, Magnetotelluric, Gravity, Magnetic) and geological mapping to analyze rock characteristics and caldera structure of Mount Bromo for flood mitigation.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Managed 9 types of geophysical survey equipment over 10 days of field operations, ensuring instrument calibration, system checks, battery monitoring, and troubleshooting to minimize downtime.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Designed and performed Magnetotelluric (MT) surveys, processing data from time-series to frequency domain, performing smoothing, editing, phase tensor analysis using MTPy, and conducting 1D/2D inversion with Winglink to generate subsurface resistivity profiles.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-caret-right text-brand-500 mt-1"></i>
+                                <span>Interpreted multi-method integrated results, identifying low-resistivity zones correlated with solidified lava flows and high-resistivity anomalies indicating potential heat sources in Bromo Tengger area.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE COMPETENCIES & SKILLS -->
+    <section id="competencies" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Technical Expertise</h2>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Core Competencies & Software</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Core Competencies Box -->
+                <div class="bg-slate-50 dark:bg-slate-800/60 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/80">
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-gears text-brand-600"></i> Domain Competencies
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> Drilling Operations Fundamentals
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> Well Planning Fundamentals
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> MWD Fundamentals
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> Well Logging & Petrophysics
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> Oil & Gas & Geothermal
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> Subsurface & Geophysics Analyst
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> Wellsite Drilling Support
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> Formation Evaluation
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> Core Sample Analysis (RCAL/SCAL)
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-emerald-500"></i> HSE Compliance & Risk Mgmt
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Software Tags & Languages -->
+                <div class="space-y-6">
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-6 rounded-2xl border border-slate-200 dark:border-slate-700/80">
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-laptop-code text-brand-600"></i> Technical & Software Tools
+                        </h4>
+                        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Interactive Petrophysics</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Techlog</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Petrel</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Geolog</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Hampson Russel</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">ArcGIS</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Matlab</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">MTPy / Winglink</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Oasis Montaj</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">MTEditor / ZondMT2D</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">Tesseral / Vista</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">MS Office / Excel Dashboards</span>
+                        </div>
+                    </div>
+
+                    <!-- Softskills & Languages -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/80">
+                            <h5 class="text-sm font-bold text-slate-900 dark:text-white mb-2"><i class="fa-solid fa-users text-brand-600"></i> Soft Skills</h5>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Leadership, Public Speaking, Problem Solving, Time Management, Teamwork, Adaptability, Critical Thinking, Attention to Detail.
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/80">
+                            <h5 class="text-sm font-bold text-slate-900 dark:text-white mb-2"><i class="fa-solid fa-language text-brand-600"></i> Languages</h5>
+                            <div class="text-xs font-medium space-y-1">
+                                <div class="flex justify-between"><span>English</span> <span class="text-slate-500">Intermediate</span></div>
+                                <div class="flex justify-between"><span>Indonesian</span> <span class="text-slate-500">Native</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATIONAL BACKGROUND -->
+    <section id="education" class="py-16 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Academic Foundation</h2>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Educational Background</h3>
+            </div>
+
+            <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm max-w-4xl mx-auto">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 pb-4 border-b border-slate-100 dark:border-slate-800">
+                    <div>
+                        <h4 class="text-xl font-extrabold text-slate-900 dark:text-white">SEPULUH NOPEMBER INSTITUTE OF TECHNOLOGY (ITS)</h4>
+                        <p class="text-brand-600 dark:text-brand-400 font-semibold text-sm">Bachelor of Geophysics Engineering</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300">
+                            GPA: 3.49 / 4.00
+                        </span>
+                        <div class="text-xs text-slate-500 mt-1">July 2020 – September 2024</div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Undergraduate Thesis:</span>
+                        <p class="text-sm font-medium text-slate-800 dark:text-slate-200 mt-1 italic">
+                            “Petrophysical Analysis and Rock Type Determination Using Pore Geometry Structure Method on Carbonate Reservoir at 'MARK' Field”
+                        </p>
+                    </div>
+
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Relevant Coursework:</span>
+                        <div class="flex flex-wrap gap-1.5 mt-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Well Log Data Analysis</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Rock Mechanics</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Rock Physics</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Geology</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Reservoir Geophysics</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Geophysics Exploration Methods</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Fundamental Electronics</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Seismic Exploration</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Structural Geology</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Geothermal Exploration</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Thermodynamics</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Gravity & Magnetic Exploration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS & COURSES -->
+    <section id="certifications" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Professional Growth</h2>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Certifications & Training</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Cert Card 1 -->
+                <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold mb-1">
+                            <span>IWCF</span>
+                            <span>April 2026</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">International Well Control Forum (IWCF) Level 1</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 mb-3">Overview of Oil & Gas, Life Cycle of a Well, Drilling Rigs, Well Control During Operations, Pressure Control.</p>
+                    </div>
+                    <span class="inline-block text-[10px] uppercase font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2 py-1 rounded w-max">Certified</span>
+                </div>
+
+                <!-- Cert Card 2 -->
+                <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold mb-1">
+                            <span>IWCF</span>
+                            <span>July 2026</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Well Operations Crew Resource Management (WOCRM)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 mb-3">Situational Awareness, Decision Making, Leadership, Communication, Teamwork & Performance Factors.</p>
+                    </div>
+                    <span class="inline-block text-[10px] uppercase font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2 py-1 rounded w-max">Certified</span>
+                </div>
+
+                <!-- Cert Card 3 -->
+                <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold mb-1">
+                            <span>Kemnaker / PT Narada Katiga</span>
+                            <span>Dec 2024</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Occupational Health & Safety (OHS) – General K3 Candidate</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 mb-3">Law No. 1/1970, OSH Policies, Risk Management, Electrical/Pressure Equipment Safety, SMK3 Audit.</p>
+                    </div>
+                    <span class="inline-block text-[10px] uppercase font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2 py-1 rounded w-max">K3 Candidate</span>
+                </div>
+
+                <!-- Cert Card 4 -->
+                <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold mb-1">
+                            <span>Sahara.Id</span>
+                            <span>August 2025</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Advanced Drilling System "Measurement While Drilling (MWD)"</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 mb-3">Downhole Sensors, Telemetry Systems, Directional Surveying & Real-Time Drilling Decisions.</p>
+                    </div>
+                    <span class="inline-block text-[10px] uppercase font-bold text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950 px-2 py-1 rounded w-max">Course</span>
+                </div>
+
+                <!-- Cert Card 5 -->
+                <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold mb-1">
+                            <span>Reservoir Solutions (RES)</span>
+                            <span>August 2026</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Seismic to Simulation Internship</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 mb-3">Seismic Inversion, Static Modeling, History Matching, Dynamic Simulation & Field Development Planning.</p>
+                    </div>
+                    <span class="inline-block text-[10px] uppercase font-bold text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950 px-2 py-1 rounded w-max">Internship</span>
+                </div>
+
+                <!-- Cert Card 6 -->
+                <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-brand-600 dark:text-brand-400 font-semibold mb-1">
+                            <span>Sahara.Id</span>
+                            <span>January 2026</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base mb-2">Course of Well Completion Equipment and System</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 mb-3">Lifecycle Well Completion, Fundamental Components, Conventional to Advanced Technologies.</p>
+                    </div>
+                    <span class="inline-block text-[10px] uppercase font-bold text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950 px-2 py-1 rounded w-max">Course</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & ORGANIZATIONS -->
+    <section id="organizations" class="py-16 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <!-- Left: Achievements -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Honors</h2>
+                        <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">Achievements & Awards</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-start gap-4">
+                            <div class="p-3 bg-amber-100 dark:bg-amber-950/80 text-amber-600 rounded-xl">
+                                <i class="fa-solid fa-trophy text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Funded PKM-AI Scientific Article (Kemendikbudristek)</h4>
+                                <p class="text-xs text-slate-500 mt-1">“The Impact of Evapotranspiration on Machine Learning Accuracy for Rainfall Prediction in Bandung” (2023)</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-start gap-4">
+                            <div class="p-3 bg-brand-100 dark:bg-brand-950/80 text-brand-600 rounded-xl">
+                                <i class="fa-solid fa-award text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Pemkab Samosir Scholarship Awardee</h4>
+                                <p class="text-xs text-slate-500 mt-1">Academic performance scholarship recognition (2021)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Organizations -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Leadership</h2>
+                        <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">Organizations & Committees</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        
+                        <!-- Org 1 -->
+                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Student Activity Unit (UKM) Karate-Do ITS</h4>
+                                    <p class="text-xs text-brand-600 dark:text-brand-400 font-semibold">Chairperson (Apr 2022 – Apr 2023)</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Led 100+ active members, achieved 100% program execution, and managed team participation in national karate championships resulting in a 50% increase in award achievements.
+                            </p>
+                        </div>
+
+                        <!-- Org 2 -->
+                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-base">HMTG ITS (Student Association of Geophysical Eng.)</h4>
+                                    <p class="text-xs text-brand-600 dark:text-brand-400 font-semibold">Expert Staff – Entrepreneurship Bureau (Feb 2022 – Dec 2023)</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Coordinated entrepreneurship webinars for 80+ students, boosted social media outreach by 80%, and designed merchandise that increased organizational revenue by 60%.
+                            </p>
+                        </div>
+
+                        <!-- Org 3 -->
+                        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-base">National Karate Championship – Erick Thohir Cup 2022</h4>
+                                    <p class="text-xs text-brand-600 dark:text-brand-400 font-semibold">Table Official Staff (Oct 2022)</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Validated documents for 250+ athletes, operated scoring boards for 80-100 daily matches with zero complaints under WKF regulations.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2">
+            <p>© <span id="year">2026</span> Markus Artha Bima Simatupang. All Rights Reserved.</p>
+            <p class="text-slate-400">Designed for Oil & Gas, Field Engineering, and Well Operations.</p>
+        </div>
+    </footer>
+
+    <!-- QR CODE MODAL POPUP -->
+    <div id="qrModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl max-w-sm w-full border border-slate-200 dark:border-slate-800 text-center shadow-2xl relative">
+            <button onclick="toggleQRModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Portfolio QR Code</h3>
+            <p class="text-xs text-slate-500 mb-4">Scan to quickly access Markus's portfolio</p>
+
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 inline-block shadow-inner">
+                <!-- QR Code image render -->
+                <img id="qrImg" src="data:image/png;base64,iVBORw0KGgoAAAANSOhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Portfolio QR Code" class="w-48 h-48 object-contain mx-auto" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://linkedin.com/in/markus-simatupang-';">
+            </div>
+
+            <p class="text-xs text-slate-400 mt-4">
+                LinkedIn: <a href="https://linkedin.com/in/markus-simatupang-" target="_blank" class="text-brand-600 hover:underline">markus-simatupang-</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTION -->
+    <script>
+        // Set dynamic current year
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        // Dark mode toggle function
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                themeIcon.className = "fa-solid fa-moon";
+            } else {
+                html.classList.add('dark');
+                themeIcon.className = "fa-solid fa-sun text-amber-400";
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // QR Code Modal Toggle
+        function toggleQRModal() {
+            const modal = document.getElementById('qrModal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Copy text helper
+        function copyText(text, label) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            alert(label + " copied to clipboard!");
+        }
+
+        // Inject profile photo & QR code from CV images if provided
+        window.onload = function() {
+            // Setup fallbacks or photo inputs
+            const defaultPhoto = "https://placehold.co/400x500/0c4a6e/ffffff?text=Markus+Simatupang";
+            const defaultQR = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://linkedin.com/in/markus-simatupang-";
+            
+            const profileImg = document.getElementById('profileImg');
+            if(profileImg && profileImg.src.startsWith("data:image/png;base64,iVBORw0KGgoAAAANSOhEUgAAAAEAAAAB")) {
+                profileImg.src = defaultPhoto;
+            }
+
+            const qrImg = document.getElementById('qrImg');
+            if(qrImg && qrImg.src.startsWith("data:image/png;base64,iVBORw0KGgoAAAANSOhEUgAAAAEAAAAB")) {
+                qrImg.src = defaultQR;
+            }
+        }
+    </script>
+</body>
+</html>
